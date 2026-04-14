@@ -54,7 +54,7 @@
     "value": "c99a680a631db4a6fd70d4c5b87f46dd",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1784040362.928455,
+    "expires": 1784043963.550664,
     "httpOnly": true,
     "secure": true,
     "sameSite": "Lax"
@@ -91,10 +91,10 @@
   },
   {
     "name": "note_gql_auth_token",
-    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzc2MTc3OTU2LCJleHAiOjE3NzYxNzk3NTYsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.P-loXpO_gY4QFtetl0KXdlLIeVzxC37G1FCBZ1dd295IeQRyBHTl3ji2gbdPtJQI5mmtSL-4CPsn-jZJUU-X-77qXcrKHBOl576wemdapaxu_zEkXjtAcQ0e_0F81pUxfgBTR2oxD9iKFIP3Eha-z6CDEro9rjthIyanw29JKo1iMNfvbyO92njN9o66FYz_6can5aEExqbADGp4FdOnCyA5hleyQvtFpkOdZ5Hl9VB1L07NuBxo7u4E9pqatCZbkSt23Se5cnlKJhIH346hNEIDGXYbJLjY63AsSgiNPoAJqK_iGaY2NPu1vbf3N9UVzIp1iDCZW0eVDUJzBKwiXw",
+    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzc2MTgxNTUyLCJleHAiOjE3NzYxODMzNTIsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.w3mPhbZWfBKOdTogCHq7UutQSXtF84yKllW1U_F-8pJXPuTv_YbCN8vgMqLljuExbaYFDvJr-g0v5Vcm1ADSQlP9klzWJiKTW1xfYdjwhEr0iIKK7KhazHwHnmYTGNQZ0QEABy-b-RcIYx6_NuvVwdW9ziNQq71a_6o838WlM48wU1KXKFTOB3JV3FfN2UB1t231NTXs208HsSz2NsodB6zTbHBjrCehawCLo0511e-Qjl8yQWY9u_fD0aYuybxHJrvG_iKXONrAeNNhyHgcDxdJN2OR-qEIuVc3NjPTZMhubE3w1MJczzlkoWJiqiZY-nEYR9IO31NVUcvPObv4fg",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1776179756.665094,
+    "expires": 1776183352.750876,
     "httpOnly": false,
     "secure": true,
     "sameSite": "Lax"
