@@ -54,7 +54,7 @@
     "value": "c99a680a631db4a6fd70d4c5b87f46dd",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1778565164.859083,
+    "expires": 1785913183.31464,
     "httpOnly": true,
     "secure": true,
     "sameSite": "Lax"
@@ -87,6 +87,16 @@
     "expires": -1,
     "httpOnly": false,
     "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "note_gql_auth_token",
+    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzc3OTY0MzgyLCJleHAiOjE3Nzc5NjYxODIsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.bACV5GPtuULSD3UaXjLgTU72KKkEiwH0QQWejjI1YnEo38ceKuMFnL_JsSAZ1t6i7PYosapelDdfh0Dk-czcBaC0cU8Kc7rSsRgYXsHxSgR28RN-OoxH2XASrioHgfgVOJFlTM2coSs0W33cU2kyutt3EIe5blzjeYuzNAkRuOpMYpU-0WsQs3UrPBcGdACCe1O3xrE3yPuJedWmayFxcG_J2Ki-TEmhtWxY2T1boU3dGa0L1OEiT7SpnVUbyEf19DUvBFM9PbjrpXxJAywhyCYjEHBnASKdDZAyLt2BOj4hp4kw6PyB1ZTOAMGvvb_w4EPMF5-22WjBqSDPSTZlrA",
+    "domain": ".note.com",
+    "path": "/",
+    "expires": 1777966182.125239,
+    "httpOnly": false,
+    "secure": true,
     "sameSite": "Lax"
   }
 ]
