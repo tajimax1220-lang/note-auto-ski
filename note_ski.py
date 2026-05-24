@@ -32,6 +32,9 @@ def run():
     random.shuffle(keywords)
     total_count = 0
     MAX_LIKES = 20
+    
+    # 処理済みユーザーを記録するセット（同一稼働内での重複防止）
+    processed_users = set()
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -78,37 +81,23 @@ def run():
                 page.mouse.wheel(0, 2000)
                 page.wait_for_timeout(2000)
             
-            # スキ！ボタンを探して実行
-            # その都度最新の状態を取得するためループ内でlocatorを評価
-            btns_locator = page.locator('button[aria-label="スキ"][aria-pressed="false"]')
-            count_in_page = btns_locator.count()
-            print(f"🔎 「{word}」で未実行のボタンを {count_in_page} 個発見")
+            # 各記事のカード要素を特定して取得
+            cards_locator = page.locator('div[data-testname="card"], article')
+            cards_count = cards_locator.count()
+            print(f"🔎 「{word}」の検索結果から記事候補を {cards_count} 件取得しました")
 
-            for i in range(count_in_page):
+            for i in range(cards_count):
                 if total_count >= MAX_LIKES:
                     break
                 
                 try:
-                    target_btn = btns_locator.nth(i)
-                    if target_btn.is_visible():
-                        target_btn.scroll_into_view_if_needed()
-                        time.sleep(random.uniform(2, 5)) # スクロール後の微調整
-                        target_btn.click(force=True)
-                        total_count += 1
-                        print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word})")
-                        time.sleep(random.uniform(10, 15)) # 次のスキへの間隔
-                except:
-                    continue
-            
-            if total_count < MAX_LIKES:
-                print(f"💡 「{word}」の処理を終了し、次のキーワードへ。")
-
-        # セッション保存
-        with open("cookie.txt", "w", encoding="utf-8") as f:
-            json.dump(context.cookies(), f, indent=2)
-
-        browser.close()
-    print(f"--- 全行程完了: 合計 {total_count}件 ---")
-
-if __name__ == "__main__":
-    run()
+                    card = cards_locator.nth(i)
+                    if not card.is_visible():
+                        continue
+                        
+                    # カード内からユーザー名（クリエイターページへのリンクテキスト）を抽出
+                    user_element = card.locator('a[href*="/n/"]').first
+                    if user_element.count() > 0:
+                        user_name = user_element.inner_text().strip()
+                    else:
+                        user_name = "Unknown"
