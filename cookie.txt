@@ -24,7 +24,7 @@
     "value": "c99a680a631db4a6fd70d4c5b87f46dd",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1788764721.940179,
+    "expires": 1788768363.573782,
     "httpOnly": true,
     "secure": true,
     "sameSite": "Lax"
@@ -34,24 +34,44 @@
     "value": "GA1.2.1160880566.1780243193",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1780901994,
+    "expires": 1780905910,
     "httpOnly": false,
     "secure": false,
     "sameSite": "Lax"
   },
   {
     "name": "note_gql_auth_token",
-    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzgwODE1NTgyLCJleHAiOjE3ODA4MTczODIsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.XHj-bO3QjjDg3H_nQlAds6CZ-nNcVKqbNAGyHpAxQN8VVpPqBPw29IrxVNhH8XBWhaX1QCGQE2S0BAWkRRdHmlRiwN5zV9gdHOmX-rNfaJYHKJ-pAjf7kEYFflBCJk0SsYebhigsowu9eQlVIeTB_69fwFD9KELl9OZUGm39TNuuk0Yn65w6MimJ4abGNQlivUQ3E97gaYBjENJwD_Qu5kPIxiH3evlHkZV6oppKV2AG2UBXf2yEkFyv-4Xf0U_NoPala5xGev8zp_-njYfbUZj7Y5chKHOhLlF68JEHf5h5EzODzgsj942r7EHZKki8UR_6Nw7NuXol3l4tN7wubA",
+    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzgwODE5MTgyLCJleHAiOjE3ODA4MjA5ODIsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.Lxzw9Za2QCkhfiqA3pWw7CK_fuobYxFRn1yiFCEVeUBPp0iJBfJWv4ALDm7phNgOa_-npSMm1jOcBdFSIquev7s79ZFIU9cMCosDMhh8qpm_l-A1yHqnbKTWb6m0LLdQeaVfIq685wjTz3eNcZs063cuvq2PbhByBS-AGLeT3R6Rt9LIllw_RpahmWqH3cZPTGUO_h7Bmf9mP7A0bc5-vnlcplXwFM9KnvbuvMKqzmEN53JZCbiI2_qtsgP8an7EZXyfQfv9f8DR8EhTfyPxXR2wYUq2c_UIwNh9xVUrB49FS4DXEY4Gdb1CIj3cZeCaIDt3wymfnPVdiSi9O9GNFA",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1780817382.185976,
+    "expires": 1780820982.881669,
     "httpOnly": false,
     "secure": true,
     "sameSite": "Lax"
   },
   {
     "name": "fp",
-    "value": "9b10dcb9879ba102d43b4fd5b1cd66153",
+    "value": "39ddac1a2a8b6095cb597fa92360b227f",
+    "domain": ".note.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_vid_v1",
+    "value": "b6e4abbe86aa97754b044c439bf02655",
+    "domain": "note.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_vid_v2",
+    "value": "b6e4abbe86aa97754b044c439bf02655",
     "domain": ".note.com",
     "path": "/",
     "expires": -1,
@@ -64,37 +84,17 @@
     "value": "GA1.1.1652935521.1773288148",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1815375594.276926,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_vid_v1",
-    "value": "8e7f3dc13a2643be57b2dbd999d8e3f7",
-    "domain": "note.com",
-    "path": "/",
-    "expires": -1,
-    "httpOnly": false,
-    "secure": false,
-    "sameSite": "Lax"
-  },
-  {
-    "name": "_vid_v2",
-    "value": "8e7f3dc13a2643be57b2dbd999d8e3f7",
-    "domain": ".note.com",
-    "path": "/",
-    "expires": -1,
+    "expires": 1815379510.730236,
     "httpOnly": false,
     "secure": false,
     "sameSite": "Lax"
   },
   {
     "name": "_ga_J9CPC3WE56",
-    "value": "GS2.1.s1780815594$o192$g1$t1780815598$j56$l0$h0",
+    "value": "GS2.1.s1780819195$o193$g1$t1780819515$j54$l0$h0",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1815375598.54077,
+    "expires": 1815379515.281836,
     "httpOnly": false,
     "secure": false,
     "sameSite": "Lax"
