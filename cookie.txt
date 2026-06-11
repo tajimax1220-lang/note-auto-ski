@@ -40,16 +40,6 @@
     "sameSite": "Lax"
   },
   {
-    "name": "note_gql_auth_token",
-    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzgxMTM5NTgzLCJleHAiOjE3ODExNDEzODMsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.hqvgA0GnSlCNJnTT9W6APf7mgzel5NsL3jbKNXFRsr0_7d7TU6Ma8JTuYkLJ_Qie1WtmwlPXqhVcmYaCuJbhJNuMbu-8CO_JZeODapKKN5RQS2a2ke3Ht9lqndTRwWCuZDn2Ca7K34MnQevDyC_Fr-rO86I3tKZuJu7JHas3eJR-tRlmHSlYOt3fo-vx0M5N9gXaiw9tYdlacOQr9CCC6PRhJTcLJk95Fr_XaHT7F1rHX-CraaLoLI0NwBDgKEmOYoWmCG25MO1Ri36A7g4tCW1ZnghQm7zJiaUsdyhUHmCQFt9BP247B7UpcaklYtPLFA03DCcUjtTn7RhKIZexyg",
-    "domain": ".note.com",
-    "path": "/",
-    "expires": 1781141383.344052,
-    "httpOnly": false,
-    "secure": true,
-    "sameSite": "Lax"
-  },
-  {
     "name": "fp",
     "value": "9a44db4d0b1a32cc95d0297a6201dbafd",
     "domain": ".note.com",
