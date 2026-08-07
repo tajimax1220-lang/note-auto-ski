@@ -17,7 +17,6 @@ def run():
         print(f"💤 現在 {hour}時（深夜2:00-5:00）のため、動作を停止します。")
         return
 
-    # ボリューム重視の固定キーワード
     keywords = [
         "日記", "エッセイ", "毎日note", "自己紹介", "毎日更新",
         "ビジネス", "ライフスタイル", "生き方", "考え方", "習慣",
@@ -30,7 +29,6 @@ def run():
     total_count = 0
     MAX_LIKES = 20
     
-    # 処理済みユーザーを記録するセット（同一稼働内での重複防止）
     processed_users = set()
 
     with sync_playwright() as p:
@@ -72,30 +70,29 @@ def run():
             url = f"https://note.com/search?q={urllib.parse.quote(word)}&context=note&mode=search"
             page.goto(url, wait_until="domcontentloaded")
             
-            # 【重要】Next.jsの動的描画を待機（コンテンツが表示されるまで最大15秒待つ）
+            # コンテンツの動的読み込みを待機
             try:
-                page.wait_for_selector('main#main-content button, article, section', timeout=15000)
+                page.wait_for_selector('main#main-content', timeout=15000)
             except Exception:
-                print(f"⚠️ 「{word}」のコンテンツ読み込みタイムアウト")
+                pass
 
-            # スクロールして追加コンテンツを読み込ませる
+            # スクロールして記事カードを読み込ませる
             for _ in range(3):
                 page.mouse.wheel(0, 2500)
                 page.wait_for_timeout(2000)
             
-            # 【修正セレクター】スキボタンの候補を取得
-            btns_locator = page.locator('button[aria-label*="スキ"], button:has(svg[aria-label*="スキ"])')
-            
+            # スキボタン（未実行のもの：「スキをつける」の属性を持つボタン）をピンポイントで取得
+            btns_locator = page.locator('button[aria-label="スキをつける"], button[aria-label*="スキをつける"]')
             count_in_page = btns_locator.count()
+            
             valid_btns = []
-
             for idx in range(count_in_page):
                 btn = btns_locator.nth(idx)
                 try:
                     aria_pressed = btn.get_attribute("aria-pressed")
                     aria_label = btn.get_attribute("aria-label") or ""
                     
-                    # すでにスキ済み（「取り消す」や aria-pressed="true"）でなければ対象にする
+                    # 既に「スキを取り消す」になっているものや aria-pressed="true" は除外
                     if aria_pressed != "true" and "取り消す" not in aria_label:
                         valid_btns.append(btn)
                 except Exception:
@@ -111,7 +108,7 @@ def run():
                     if target_btn.is_visible():
                         user_name = "Unknown"
                         try:
-                            # 親記事ブロックからユーザー名を特定
+                            # 記事カードの親要素からユーザー名を特定
                             parent_card = target_btn.locator('xpath=./ancestor::*[self::article or self::section or contains(@class, "Wrapper") or contains(@class, "Note")][1]')
                             user_element = parent_card.locator('a[href*="/n/"], [class*="userName"], [class*="user"]').first
                             if user_element.count() > 0:
@@ -119,24 +116,21 @@ def run():
                         except Exception:
                             pass
 
-                        # 既に今回の起動でスキ済みのユーザーならスキップ
                         if user_name != "Unknown" and user_name in processed_users:
                             continue
                         
                         target_btn.scroll_into_view_if_needed()
-                        page.wait_for_timeout(random.randint(2000, 4000)) # クリック前の溜め
+                        page.wait_for_timeout(random.randint(2000, 4000))
                         
                         target_btn.click(force=True)
                         total_count += 1
                         
-                        # スキしたユーザー名を記録
                         if user_name != "Unknown":
                             processed_users.add(user_name)
                             print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word} / ユーザー: {user_name})")
                         else:
                             print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word})")
                         
-                        # 検知回避のための待機
                         time.sleep(random.uniform(10, 18))
                 except Exception:
                     continue
@@ -144,7 +138,7 @@ def run():
             if total_count < MAX_LIKES:
                 print(f"💡 「{word}」の処理を終了。次へ進みます。")
 
-        # 最後にセッションを更新保存
+        # クッキー保存
         with open("cookie.txt", "w", encoding="utf-8") as f:
             json.dump(context.cookies(), f, indent=2)
 
