@@ -17,6 +17,7 @@ def run():
         print(f"💤 現在 {hour}時（深夜2:00-5:00）のため、動作を停止します。")
         return
 
+    # ボリューム重視の固定キーワード
     keywords = [
         "日記", "エッセイ", "毎日note", "自己紹介", "毎日更新",
         "ビジネス", "ライフスタイル", "生き方", "考え方", "習慣",
@@ -29,6 +30,7 @@ def run():
     total_count = 0
     MAX_LIKES = 20
     
+    # 処理済みユーザーを記録するセット（同一稼働内での重複防止）
     processed_users = set()
 
     with sync_playwright() as p:
@@ -67,22 +69,27 @@ def run():
                 break
             
             print(f"🔎 検索開始: 【{word}】 (現在の合計: {total_count}/{MAX_LIKES})")
-            url = f"https://note.com/search?q={urllib.parse.quote(word)}&context=note&mode=search"
+            # 新着順ソート（mode=search&sort=new）のURLを作成
+            url = f"https://note.com/search?q={urllib.parse.quote(word)}&context=note&mode=search&sort=new"
             page.goto(url, wait_until="domcontentloaded")
-            
-            # コンテンツの動的読み込みを待機
+            page.wait_for_timeout(3000)
+
+            # 【補強処理】UI上の「新着」タブを確実にクリックして新着順を保証
             try:
-                page.wait_for_selector('main#main-content', timeout=15000)
+                new_tab = page.locator('a:has-text("新着"), button:has-text("新着")').first
+                if new_tab.is_visible():
+                    new_tab.click()
+                    page.wait_for_timeout(2000)
             except Exception:
                 pass
 
-            # スクロールして記事カードを読み込ませる
+            # 複数回スクロールして最新記事を読み込ませる
             for _ in range(3):
                 page.mouse.wheel(0, 2500)
                 page.wait_for_timeout(2000)
             
-            # スキボタン（未実行のもの：「スキをつける」の属性を持つボタン）をピンポイントで取得
-            btns_locator = page.locator('button[aria-label="スキをつける"], button[aria-label*="スキをつける"]')
+            # 全てのスキボタン要素を取得
+            btns_locator = page.locator('button[aria-label*="スキ"]')
             count_in_page = btns_locator.count()
             
             valid_btns = []
@@ -92,13 +99,17 @@ def run():
                     aria_pressed = btn.get_attribute("aria-pressed")
                     aria_label = btn.get_attribute("aria-label") or ""
                     
-                    # 既に「スキを取り消す」になっているものや aria-pressed="true" は除外
-                    if aria_pressed != "true" and "取り消す" not in aria_label:
+                    # 【重要】過去に既にスキを押した記事（aria-pressed="true" や「スキを取り消す」）を除外
+                    if aria_pressed == "true" or "スキを取り消す" in aria_label or "取り消す" in aria_label:
+                        continue
+                        
+                    # 「この記事にスキをつけたユーザーを見る」が含まれる未実行ボタンのみを保持
+                    if "この記事にスキをつけたユーザーを見る" in aria_label:
                         valid_btns.append(btn)
                 except Exception:
                     continue
 
-            print(f"🔎 「{word}」で未実行のボタンを {len(valid_btns)} 個発見")
+            print(f"🔎 「{word}」で未実行（新着）のボタンを {len(valid_btns)} 個発見")
 
             for target_btn in valid_btns:
                 if total_count >= MAX_LIKES:
@@ -116,6 +127,7 @@ def run():
                         except Exception:
                             pass
 
+                        # 今回の起動ですでにスキを押した同一ユーザーならスキップ
                         if user_name != "Unknown" and user_name in processed_users:
                             continue
                         
@@ -131,6 +143,7 @@ def run():
                         else:
                             print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word})")
                         
+                        # 検出回避のためのランダム待機
                         time.sleep(random.uniform(10, 18))
                 except Exception:
                     continue
@@ -138,7 +151,7 @@ def run():
             if total_count < MAX_LIKES:
                 print(f"💡 「{word}」の処理を終了。次へ進みます。")
 
-        # クッキー保存
+        # 最後にセッションを更新保存
         with open("cookie.txt", "w", encoding="utf-8") as f:
             json.dump(context.cookies(), f, indent=2)
 
