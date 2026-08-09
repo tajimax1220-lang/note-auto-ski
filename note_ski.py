@@ -69,18 +69,17 @@ def run():
                 break
             
             print(f"🔎 検索開始: 【{word}】 (現在の合計: {total_count}/{MAX_LIKES})")
-            # 新着順ソートを付与した検索URL
             url = f"https://note.com/search?q={urllib.parse.quote(word)}&mode=search&sort=new"
             page.goto(url, wait_until="domcontentloaded")
             page.wait_for_timeout(5000)
             
-            # 複数回スクロールして読み込みを安定させる
+            # 【重要】複数回スクロールして読み込みを安定させる
             for _ in range(3):
                 page.mouse.wheel(0, 2000)
                 page.wait_for_timeout(2500)
             
-            # 成功していた元のボタン取得ロケーター
-            btns_locator = page.locator('button[aria-label="スキ"][aria-pressed="false"]')
+            # 【修正箇所】動的なスキ数が入った aria-label に対応
+            btns_locator = page.locator('button[aria-label*="スキ"][aria-label*="この記事にスキをつけたユーザーを見る"]')
             count_in_page = btns_locator.count()
             print(f"🔎 「{word}」で未実行のボタンを {count_in_page} 個発見")
 
@@ -90,10 +89,13 @@ def run():
                 
                 try:
                     target_btn = btns_locator.nth(i)
+                    # ボタンが有効かつ表示されているか確認
                     if target_btn.is_visible():
                         
+                        # --- 【提供ソースを基に確実な抽出へ修正】 ---
                         user_name = "Unknown"
                         try:
+                            # スキボタンから上へ辿り、同じ記事ブロック（m-largeNoteWrapper）の中にあるユーザー名領域を特定
                             parent_card = target_btn.locator('xpath=./ancestor::section[contains(@class, "m-largeNoteWrapper")][1]')
                             user_element = parent_card.locator('.o-largeNoteSummary__userName')
                             if user_element.count() > 0:
@@ -106,17 +108,19 @@ def run():
                             continue
                         
                         target_btn.scroll_into_view_if_needed()
-                        page.wait_for_timeout(random.randint(2000, 4000))
+                        page.wait_for_timeout(random.randint(2000, 4000)) # クリック前の溜め
                         
                         target_btn.click(force=True)
                         total_count += 1
                         
+                        # スキしたユーザー名を記録
                         if user_name != "Unknown":
                             processed_users.add(user_name)
                             print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word} / ユーザー: {user_name})")
                         else:
                             print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word})")
                         
+                        # 検知回避のための待機（少し短縮して効率化）
                         time.sleep(random.uniform(10, 18))
                 except:
                     continue
