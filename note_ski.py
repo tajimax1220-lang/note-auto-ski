@@ -71,14 +71,23 @@ def run():
             print(f"🔎 検索開始: 【{word}】 (現在の合計: {total_count}/{MAX_LIKES})")
             url = f"https://note.com/search?q={urllib.parse.quote(word)}&mode=search&sort=new"
             page.goto(url, wait_until="domcontentloaded")
-            page.wait_for_timeout(5000)
+            page.wait_for_timeout(4000)
+
+            # 【重要追加】画面上の「新着」並び替えタブを直接クリックして確実に新着順へ切り替える
+            try:
+                new_tab_btn = page.locator('button:has-text("新着"), a:has-text("新着")').first
+                if new_tab_btn.is_visible():
+                    new_tab_btn.click()
+                    page.wait_for_timeout(3000)
+            except:
+                pass
             
             # 【重要】複数回スクロールして読み込みを安定させる
             for _ in range(3):
                 page.mouse.wheel(0, 2000)
                 page.wait_for_timeout(2500)
             
-            # 【修正箇所】動的なスキ数が入った aria-label に対応
+            # 動的なスキ数が入った aria-label に対応するロケーター
             btns_locator = page.locator('button[aria-label*="スキ"][aria-label*="この記事にスキをつけたユーザーを見る"]')
             count_in_page = btns_locator.count()
             print(f"🔎 「{word}」で未実行のボタンを {count_in_page} 個発見")
@@ -89,13 +98,13 @@ def run():
                 
                 try:
                     target_btn = btns_locator.nth(i)
-                    # ボタンが有効かつ表示されているか確認
-                    if target_btn.is_visible():
+                    
+                    # ボタンが表示されており、かつ過去にスキ（いいね）を押していない（aria-pressed="false"）か確認
+                    if target_btn.is_visible() and target_btn.get_attribute("aria-pressed") != "true":
                         
-                        # --- 【提供ソースを基に確実な抽出へ修正】 ---
+                        # --- ユーザー名抽出 ---
                         user_name = "Unknown"
                         try:
-                            # スキボタンから上へ辿り、同じ記事ブロック（m-largeNoteWrapper）の中にあるユーザー名領域を特定
                             parent_card = target_btn.locator('xpath=./ancestor::section[contains(@class, "m-largeNoteWrapper")][1]')
                             user_element = parent_card.locator('.o-largeNoteSummary__userName')
                             if user_element.count() > 0:
@@ -120,7 +129,7 @@ def run():
                         else:
                             print(f"[{total_count}/{MAX_LIKES}] スキ！ ({word})")
                         
-                        # 検知回避のための待機（少し短縮して効率化）
+                        # 検知回避のための待機
                         time.sleep(random.uniform(10, 18))
                 except:
                     continue
