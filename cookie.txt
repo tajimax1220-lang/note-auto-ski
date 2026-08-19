@@ -24,7 +24,7 @@
     "value": "c99a680a631db4a6fd70d4c5b87f46dd",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1795046434.042126,
+    "expires": 1795050030.954036,
     "httpOnly": true,
     "secure": true,
     "sameSite": "Lax"
@@ -61,17 +61,17 @@
   },
   {
     "name": "note_gql_auth_token",
-    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzg3MDk3NTgzLCJleHAiOjE3ODcwOTkzODMsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.Y7WTzw_-twxEwJI2BCuv9nTS_7UPkjm_QOmTpvL84O-yFqQgS8sIkocHqfh76YjKVoW4ZwY8-M0F65pfp_PzZHlIJMe9HP1dXvfzABoArBNOo22-RI2odzJ09CdIJ6PIQYuX3m7KRbNnY97pniJqv-ipbZtUNTCY5stP0VEHSJwEHfcYIHy4nf9-6m5OaLJY73FI4LsnCykn_SIH7cYUpI5PRsnDyTrTTtdt13lTNM0tKfUTso0O40SIdLzupxCuIhbXivXF1h8f_u_i-tn-FbOcMAN-zLDac5GM1oOCe9_cNsImxAhx_ARzYB3zIBf0YvWsI9X57zGoz0pHE90OJw",
+    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzg3MTAxMTc4LCJleHAiOjE3ODcxMDI5NzgsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJjOTlhNjgwYTYzMWRiNGE2ZmQ3MGQ0YzViODdmNDZkZCJ9.GTAxOG5_Fcrsv_TeHpD2opoY0YixnyT_hAMNaWNTULsMhuPNvladXNmDSANXiIDLNO9htPUvfVxFSyzZFxdgchyWa7bBAuobCs2stoQPIYAHRrLRiZwsLdVCqLTcTa2XdFjVEsZ_xHlJ7-yuMg3oilx926QTSJcXk9RfmN1qNCww5WXD3XdabBmalFZ3NTdq0B57jhddEibVF0saHXPEQ76xoWOnSA2EfiI-LA0HnxfvS_9fhXR9o4DYZq1zhmSWA1sZJLU7YRAGSdYJK-uyY11QrDT80b1uWbtXTAgM3AO7sQ7H_0etJa05D0PKfa__lUGyqJSsxtI9nQlHdGarwA",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1787099383.855583,
+    "expires": 1787102978.508972,
     "httpOnly": false,
     "secure": true,
     "sameSite": "Lax"
   },
   {
     "name": "_vid_v1",
-    "value": "5892e06c921f7fdceca2739954a6fe69",
+    "value": "11a8042f14191080abd751247801c40e",
     "domain": "note.com",
     "path": "/",
     "expires": -1,
@@ -81,10 +81,10 @@
   },
   {
     "name": "_vid_v2",
-    "value": "5892e06c921f7fdceca2739954a6fe69",
+    "value": "11a8042f14191080abd751247801c40e",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1787099385,
+    "expires": 1787102979,
     "httpOnly": false,
     "secure": false,
     "sameSite": "Lax"
