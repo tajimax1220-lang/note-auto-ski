@@ -24,7 +24,7 @@
     "value": "c99a680a631db4a6fd70d4c5b87f46dd",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1800183629.725856,
+    "expires": 1800187232.054258,
     "httpOnly": true,
     "secure": true,
     "sameSite": "Lax"
@@ -71,17 +71,17 @@
   },
   {
     "name": "note_gql_auth_token",
-    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzkyMjM0Nzc2LCJleHAiOjE3OTIyMzY1NzYsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJfX05PTkVfXyJ9.orj5any9AmZRAolxpEutSDP17dLHpWYifgwicF3qFra2XhZHSHR7cLJoqNDo5-nQlUhyx9WSp_abf1_uv7Us-IHmrpnIV_a0WaRwYWNLrv6QDTNW5cYNcjFOkByNQq1_RBHGYVIq5heBSfQF8LQjUzBd_S-qaySD6hQp2Rv4xHxAh2DNXCLZB-ghzaxAVmCi1D5xGWsgXv6cTsbx8msSgrCqggeZ_av2dSe8PhTyRswHQcdbdK-2pvli5fmK-y-IafmQWpSnIxKXhxQHOm2XmLd4vQMJYdvtrKnWwBzn6yMzEcMavDj0zLG0OozP-mxBzEo4xmw6a4uEYpv0Tocjfw",
+    "value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJub3RlLmNvbSIsInN1YiI6IjVmNGY3MTA2ZDZiOTVhMzgzYzdiNzk3NTRhNTAxYzUwIiwiaWF0IjoxNzkyMjM4MzgwLCJleHAiOjE3OTIyNDAxODAsImNkIjpmYWxzZSwiZ3UiOmZhbHNlLCJzaWQiOiJfX05PTkVfXyJ9.vSCHS49wpm_EJx6LJvlnTtKaUPKUQdEVkWyYfXUePyd6LeK3yUwhf_3o0buU7M8T9h0TwHMK-0seVuYEjISHlMnQ6KoqXpaZDTJzad_XDl7NKkEdmPQOVX858m0rfiTFO_quzMgzh6Kz7rVAKMcqE3NiW9vpE_ywjKi722VS57mzIUn6CwruXoz5xLumZFNcih6b-MIXmJqYqvJcRicI0fipSD4c9vcoQra7gLHWHAd7ia5s23xHADUh3vdQx8xo5hsc5DRuGSTuF4rLBaZ50guDn8jaX2lHW_M1_eMOsAv6jdbcII_V5aX1LDjAEQGXbpbp7N3DM9o3emkxI6_21w",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1792236576.696631,
+    "expires": 1792240180.295915,
     "httpOnly": false,
     "secure": true,
     "sameSite": "Lax"
   },
   {
     "name": "_vid_v1",
-    "value": "c9ae6f220d3b14b1050c3adf0443c7f6",
+    "value": "2d9fd946adc77813c5792e2f5f46dc02",
     "domain": "note.com",
     "path": "/",
     "expires": -1,
@@ -91,10 +91,10 @@
   },
   {
     "name": "_vid_v2",
-    "value": "c9ae6f220d3b14b1050c3adf0443c7f6",
+    "value": "2d9fd946adc77813c5792e2f5f46dc02",
     "domain": ".note.com",
     "path": "/",
-    "expires": 1792236577,
+    "expires": 1792240181,
     "httpOnly": false,
     "secure": false,
     "sameSite": "Lax"
